@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Style Vulpis - Perfil</title>
 </head>
-<body>
+<body onload="loadPerfil()">
     <header>
         <div class="header-top">
             <img class="logo" src="./assets/images/logo.png"/>
@@ -35,13 +35,13 @@
     <main class="perfil">
         <div class="dados-perfil">
             <div class="campo-perfil">
-                Nome: R
+                Nome: <span id="nome"></span>
             </div>
             <div class="campo-perfil">
-                Email: 19999@e.com
+                Email: <span id="email"></span>
             </div>
             <div class="campo-perfil">
-                Senha: *********
+                Senha: <span id="senha"></span>
             </div>
             <div class="campo-perfil">
             <a href="./alterarDados.html"><button onclick="">Alterar Senha</button></a>
@@ -53,5 +53,6 @@
     <footer>
         <p>Desenvolvido por Charlie Amarante e Rafael Carrenho<p>
     </footer>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

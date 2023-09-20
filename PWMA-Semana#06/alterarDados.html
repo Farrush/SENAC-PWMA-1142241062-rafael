@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Style Vulpis - Editando Senha</title>
 </head>
-<body>
+<body onload="loadPassChanger()">
     <header>
         <div class="header-top">
             <img class="logo" src="./assets/images/logo.png"/>
@@ -17,15 +17,15 @@
     <main class="alt-senha">
         <div class="container">
             <h1>Alteração de Senha</h1>
-            <form action="./sucess.html">
+            <form id="form-change-pass" action="#">
                 <div class="input-field">
                     <label>Senha antiga:</label>
-                    <input type="password"/>
+                    <input type="password" id="old-pass"/>
                 </div>
 
                 <div class="input-field">
                     <label>Nova senha:</label>
-                    <input type="password"/>
+                    <input type="password" id="new-pass"/>
                 </div>
 
                 <div class="input-field">
@@ -37,5 +37,6 @@
     <footer>
         <p>Desenvolvido por Charlie Amarante e Rafael Carrenho<p>
     </footer>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

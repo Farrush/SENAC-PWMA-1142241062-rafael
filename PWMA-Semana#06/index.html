@@ -15,7 +15,7 @@
     </div>
 
     <main>
-        <form id="formu" action="#">
+        <form id="form-login" action="#">
             <h3>Login</h3>
             <label>Nome de Usuário</label>
             <br/>
@@ -33,23 +33,6 @@
     <footer>
         <p>Desenvolvido por Charlie Amarante e Rafael Carrenho<p>
     </footer>
-    <script>
-        const form = document.getElementById('formu')
-        const inputUsu = document.getElementById('caixalog')
-        const inputPas = document.getElementById('caixapas')
-        let usuario, senha
-        form.addEventListener('submit', (event)=>{
-            event.preventDefault()
-            usuario = inputUsu.value
-            senha = inputPas.value
-            if(usuario === "admin" && senha === "admin"){
-                window.open('vendas.html')
-                window.close()
-            }
-            else{
-                window.alert("usuário ou senha incorretos")
-            }
-        })
-    </script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
