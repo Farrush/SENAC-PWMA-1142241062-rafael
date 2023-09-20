@@ -15,21 +15,23 @@ function loadPerfil() {
 }
 
 //Login
-const formLogin = document.getElementById('form-login')
-const inputUsu = document.getElementById('caixalog')
-const inputPas = document.getElementById('caixapas')
-let usuario, senha
-formLogin.addEventListener('submit', (event) => {
-    event.preventDefault()
-    usuario = inputUsu.value
-    senha = inputPas.value
-    if (usuario === sessionStorage.getItem('user') && senha === sessionStorage.getItem('senha')) {
-        window.open('vendas.html', "_self")
-    }
-    else {
-        window.alert("usuário ou senha incorretos")
-    }
-})
+function loadLogin(){
+    const formLogin = document.getElementById('form-login')
+    const inputUsu = document.getElementById('caixalog')
+    const inputPas = document.getElementById('caixapas')
+    let usuario, senha
+    formLogin.addEventListener('submit', (event) => {
+        event.preventDefault()
+        usuario = inputUsu.value
+        senha = inputPas.value
+        if (usuario === sessionStorage.getItem('user') && senha === sessionStorage.getItem('senha')) {
+            window.open('vendas.html', "_self")
+        }
+        else {
+            window.alert("usuário ou senha incorretos")
+        }
+    })
+}
 
 //AlterarSenha
 function loadPassChanger() {
