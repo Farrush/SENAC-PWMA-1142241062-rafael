@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Style Vulpis - Editando Senha</title>
+</head>
+<body onload="loadPassChanger()">
+    <header>
+        <div class="header-top">
+            <img class="logo" src="./assets/images/logo.png"/>
+            <h1 class="title">Style Vulpis</h1>
+        </div>
+    </header>
+    <main class="alt-senha">
+        <div class="container">
+            <h1>Alteração de Senha</h1>
+            <form id="form-change-pass" action="#">
+                <div class="input-field">
+                    <label>Senha antiga:</label>
+                    <input type="password" id="old-pass"/>
+                </div>
+
+                <div class="input-field">
+                    <label>Nova senha:</label>
+                    <input type="password" id="new-pass"/>
+                </div>
+
+                <div class="input-field">
+                    <input class="submit" type="submit" value="Alterar"/>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Desenvolvido por Charlie Amarante e Rafael Carrenho<p>
+    </footer>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

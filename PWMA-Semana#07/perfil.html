@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Style Vulpis - Perfil</title>
+</head>
+<body onload="loadPerfil()">
+    <header>
+        <div class="header-top">
+            <img class="logo" src="./assets/images/logo.png"/>
+            <h1 class="title">Style Vulpis</h1>
+        </div>
+        <nav>
+            <a href="./vendas.html">
+                <div class="nav-item">Vendas</div>
+            </a>
+            <a href="./perfil.html">
+                <div class="nav-item">Perfil</div>
+            </a>
+            <a href="./produtos.html">
+                <div class="nav-item">Produtos</div>
+            </a>
+            <a href="./clientes.html">
+                <div class="nav-item">Clientes</div>
+            </a>
+            <a href="./index.html">
+                <div class="nav-item">Sair</div>
+            </a>
+        </nav>
+    </header>
+
+    <main class="perfil">
+        <div class="dados-perfil">
+            <div class="campo-perfil">
+                Nome: <span id="nome"></span>
+            </div>
+            <div class="campo-perfil">
+                Email: <span id="email"></span>
+            </div>
+            <div class="campo-perfil">
+                Senha: <span id="senha"></span>
+            </div>
+            <div class="campo-perfil">
+            <a href="./alterarDados.html"><button onclick="">Alterar Senha</button></a>
+            </div>
+        </div>
+    </main>
+
+    <br>
+    <footer>
+        <p>Desenvolvido por Charlie Amarante e Rafael Carrenho<p>
+    </footer>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
