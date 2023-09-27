@@ -1,4 +1,4 @@
-const Produtos = [
+const produtos = [
     {
         nome: 'Calça jeans slim',
         unidadesVendidas: 900
@@ -24,53 +24,96 @@ const Produtos = [
         unidadesVendidas: 320
     }
 ]
-const Vendas = [
+const vendas = [
     {
-        mes: 'Jan',
+        ano: 2022,
+        mes: 10,
+        total: 27000
+    },
+    {
+        ano: 2022,
+        mes: 11,
+        total: 33000
+    },
+    {
+        ano: 2022,
+        mes: 12,
         total: 38000
     },
     {
-        mes: 'Fev',
+        ano: 2023,
+        mes: 1,
+        total: 36000
+    },
+    {
+        ano: 2023,
+        mes: 2,
         total: 35000
     },
     {
-        mes: 'Mar',
+        ano: 2023,
+        mes: 3,
         total: 30000
     },
     {
-        mes: 'Abr',
+        ano: 2023,
+        mes: 4,
         total: 28000
     },
     {
-        mes: 'Mai',
+        ano: 2023,
+        mes: 5,
         total: 32000
     },
     {
-        mes: 'Jun',
+        ano: 2023,
+        mes: 6,
         total: 31000
     },
     {
-        mes: 'Jul',
+        ano: 2023,
+        mes: 7,
         total: 30000
     },
     {
-        mes: 'Ago',
+        ano: 2023,
+        mes: 8,
         total: 28000
     },
     {
-        mes: 'Set',
+        ano: 2023,
+        mes: 9,
         total: 29000
     },
     {
-        mes: 'Out',
+        ano: 2023,
+        mes: 10,
         total: 30000
     },
+    {
+        ano: 2023,
+        mes: 11,
+        total: 36000
+    },
+    {
+        ano: 2023,
+        mes: 12,
+        total: 40000
+    },
+    {
+        ano: 2024,
+        mes: 1,
+        total: 38000
+    },
 ]
+const previsaoVendas = vendas.map((venda, index) => {
+    return { ...venda, ano: venda.ano + 1, otimo: venda.total + 1500, regular: venda.total, ruim: venda.total - 1500 }
+})
 
-if (!localStorage.getItem('user')) {
-    localStorage.setItem('user', 'admin')
-    localStorage.setItem('senha', 'admin')
-    localStorage.setItem('email', 'admin@admin.com')
+if (!sessionStorage.getItem('user')) {
+    sessionStorage.setItem('user', 'admin')
+    sessionStorage.setItem('senha', 'admin')
+    sessionStorage.setItem('email', 'admin@admin.com')
 }
 
 //Perfil
@@ -78,13 +121,13 @@ function loadPerfil() {
     const campoNome = document.getElementById('nome')
     const campoSenha = document.getElementById('senha')
     const campoEmail = document.getElementById('email')
-    campoEmail.innerText = localStorage.getItem('email')
-    campoNome.innerText = localStorage.getItem('user')
-    campoSenha.innerText = localStorage.getItem('senha')
+    campoEmail.innerText = sessionStorage.getItem('email')
+    campoNome.innerText = sessionStorage.getItem('user')
+    campoSenha.innerText = sessionStorage.getItem('senha')
 }
 
 //Login
-function loadLogin(){
+function loadLogin() {
     const formLogin = document.getElementById('form-login')
     const inputUsu = document.getElementById('caixalog')
     const inputPas = document.getElementById('caixapas')
@@ -93,7 +136,7 @@ function loadLogin(){
         event.preventDefault()
         usuario = inputUsu.value
         senha = inputPas.value
-        if (usuario === localStorage.getItem('user') && senha === localStorage.getItem('senha')) {
+        if (usuario === sessionStorage.getItem('user') && senha === sessionStorage.getItem('senha')) {
             window.open('vendas.html', "_self")
         }
         else {
@@ -111,8 +154,8 @@ function loadPassChanger() {
         event.preventDefault()
         let antiga = oldPassInput.value
         let nova = newPassInput.value
-        if (antiga === localStorage.getItem('senha')) {
-            localStorage.setItem('senha', nova)
+        if (antiga === sessionStorage.getItem('senha')) {
+            sessionStorage.setItem('senha', nova)
             window.open('Sucess.html', "_self")
         }
         else {
@@ -123,19 +166,81 @@ function loadPassChanger() {
 }
 
 //Produtos
-function loadProd(){
+function loadProd() {
     const listaProd = document.getElementById('listaProd')
-    Produtos.map(produto => {
-        listaProd.innerHTML += `<li>${produto.nome} - ${produto.unidadesVendidas} unidades</li>`  
+    produtos.map(produto => {
+        listaProd.innerHTML += `<li>${produto.nome} - ${produto.unidadesVendidas} unidades</li>`
     })
 }
 //Vendas
-function loadVendas(){
+function loadVendas() {
+    const vendaAno = document.getElementById('linha-ano-vendas')
+    const projAno = document.getElementById('proj-ano')
     const colunasTabVendas = document.getElementById('linha1-vendas')
     const linhaTabVendas = document.getElementById('linha2-vendas')
-    Vendas.map(venda => {
-        console.log(venda)
-            colunasTabVendas.innerHTML += `<th>${venda.mes}</th>`
+    const mesesProj = document.getElementById('linha-meses-proj')
+    const linhaOtimo = document.getElementById('linha-ot')
+    const linhaRegular = document.getElementById('linha-reg')
+    const linhaRuim = document.getElementById('linha-ruim')
+    vendas.map((venda, index) => {
+        if(index >= vendas.length - 12){
+            vendaAno.innerHTML += `<th>${venda.ano}</th>`
+            colunasTabVendas.innerHTML += `<th>${getMes(venda.mes)}</th>`
             linhaTabVendas.innerHTML += `<td>${venda.total}</td>`
+        }
+        
     })
+    previsaoVendas.map((venda, index) => {
+        if(index >= vendas.length - 12){
+        projAno.innerHTML += `<th>${venda.ano}</th>`
+        mesesProj.innerHTML += `<th>${getMes(venda.mes)}</th>`
+        linhaOtimo.innerHTML += `<td>${venda.otimo}</td>`
+        linhaRegular.innerHTML += `<td>${venda.regular}</td>`
+        linhaRuim.innerHTML += `<td>${venda.ruim}</td>`
+        }
+    })
+}
+function getMes(numero) {
+    let mes
+    switch (numero) {
+        case 1:
+            mes = "Janeiro"
+            break;
+        case 2:
+            mes = "Fevereiro"
+            break;
+        case 3:
+            mes = "Março"
+            break;
+        case 4:
+            mes = "Abril"
+            break;
+        case 5:
+            mes = "Maio"
+            break;
+        case 6:
+            mes = "Junho"
+            break;
+        case 7:
+            mes = "Julho"
+            break;
+        case 8:
+            mes = "Agosto"
+            break;
+        case 9:
+            mes = "Setembro"
+            break;
+        case 10:
+            mes = "Outubro"
+            break;
+        case 11:
+            mes = "Novembro"
+            break;
+        case 12:
+            mes = "Dezembro"
+            break;
+        default: 
+            mes = "inválido"
+    }
+    return mes
 }

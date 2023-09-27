@@ -132,18 +132,22 @@ main.perfil{
 }
 /*Vendas*/
 #tabvendas{
+    max-width:  40vw;
     background-color:var(--box-comum);
     border-radius: 5px;
     margin-top: 25px;
     text-align: center;
     height: fit-content;
+    overflow-x: auto;
 }
 #tabprojecoes{
+    max-width:  45vw;
     background-color: var(--box-comum);
     border-radius: 5px;
     margin-top: 25px;
     text-align: center;
     height: fit-content;
+    overflow-x: auto;
 }
 main.vendas{
     width: 100%;
