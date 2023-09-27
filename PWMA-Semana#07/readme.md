@@ -2,4 +2,4 @@
 //
 //programa Web - Prof Veríssimo
 
-<img src="./assets/images/print.png">
+<img src="./assets/images/print.PNG">
