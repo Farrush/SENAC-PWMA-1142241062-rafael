@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Style Vulpis - Vendas</title>
+</head>
+<body onload="loadVendas()">
+    <header>
+        <div class="header-top">
+            <img class="logo" src="./assets/images/logo.png"/>
+            <h1 class="title">Style Vulpis</h1>
+        </div>
+        <nav>
+            <a href="./vendas.html"><div class="nav-item">Vendas</div></a>
+            <a href="./perfil.html"><div class="nav-item">Perfil</div></a>
+            <a href="./produtos.html"><div class="nav-item">Produtos</div></a>
+            <a href="./clientes.html"><div class="nav-item">Clientes</div></a>
+            <a href="./index.html"><div class="nav-item">Sair</div></a>
+        </nav>
+    </header>
+
+    <main class="vendas">
+        <div id="tabvendas">
+            <h2>Vendas</h2>
+            <table>
+                <tr id="linha-ano-vendas">
+
+                </tr>
+                <tr id="linha1-vendas">
+
+                </tr>
+                <tr id="linha2-vendas">
+
+                </tr>
+            </table>
+        </div>
+        <div id="tabprojecoes">
+            <h2>Projeções</h2>
+            <table>
+                <tr id="proj-ano">
+                    <th>Ano</th>
+                </tr>
+                <tr id="linha-meses-proj">
+                    <th>Mês</th>
+                </tr>
+                <tr id="linha-ot">
+                    <th>Ótimo</th>
+                </tr>
+                <tr id="linha-reg">
+                    <th>Regular</th>
+                </tr>
+                <tr id="linha-ruim">
+                    <th>Ruim</th>
+                </tr>
+            </table>
+        </div>
+        <div class="form">
+            <h2>Inserir venda do mês</h2>
+            <label>Total Vendido</label>
+            <input type="number" id="input-venda"/>
+            <button onclick="inserirVenda()">Cadastrar</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Charlie Amarante e Rafael Carrenho<p>
+    </footer>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
