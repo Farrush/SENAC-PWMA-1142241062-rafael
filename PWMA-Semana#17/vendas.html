@@ -24,45 +24,50 @@
     </header>
 
     <main class="vendas">
-        <div id="tabvendas">
-            <h2>Vendas</h2>
-            <table>
-                <tr id="linha-ano-vendas">
+        <div style="text-align: center">
+        <h2>Vendas</h2>
+            <div id="tabvendas">
+                <table>
+                    <tr id="linha-ano-vendas">
 
-                </tr>
-                <tr id="linha1-vendas">
+                    </tr>
+                    <tr id="linha1-vendas">
 
-                </tr>
-                <tr id="linha2-vendas">
+                    </tr>
+                    <tr id="linha2-vendas">
 
-                </tr>
-            </table>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div id="tabprojecoes">
-            <h2>Projeções</h2>
-            <table>
-                <tr id="proj-ano">
-                    <th>Ano</th>
-                </tr>
-                <tr id="linha-meses-proj">
-                    <th>Mês</th>
-                </tr>
-                <tr id="linha-ot">
-                    <th>Ótimo</th>
-                </tr>
-                <tr id="linha-reg">
-                    <th>Regular</th>
-                </tr>
-                <tr id="linha-ruim">
-                    <th>Ruim</th>
-                </tr>
-            </table>
+        <div style="text-align: center">
+        <h2>Projeções</h2>
+            <div id="tabprojecoes">
+                <table>
+                    <tr id="proj-ano">
+                        <th>Ano</th>
+                    </tr>
+                    <tr id="linha-meses-proj">
+                        <th>Mês</th>
+                    </tr>
+                    <tr id="linha-ot">
+                        <th>Ótimo</th>
+                    </tr>
+                    <tr id="linha-reg">
+                        <th>Regular</th>
+                    </tr>
+                    <tr id="linha-ruim">
+                        <th>Ruim</th>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div class="form">
             <h2>Inserir venda do mês</h2>
             <label>Total Vendido</label>
             <input type="number" id="input-venda"/>
             <button onclick="inserirVenda()">Cadastrar</button>
+            <button onclick="apagarUltimaVenda()">Excluir Última Venda</button>
         </div>
     </main>
 

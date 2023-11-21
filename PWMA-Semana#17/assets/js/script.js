@@ -210,21 +210,12 @@ function inserirVenda(){
 
     vendas.push({ano: ano,mes: mesAtual,total: Number.parseFloat(venda)})
 
-    crescimentoMensal = mediaCrescimentoMensal()
-
-    previsaoVendas = vendas.map((venda, index) => {
-        return {
-            // Cada objeto em previsaoVendas tem o próprio venda, com ano + 1, um valor de crescimento bom, um normal e um ruim.
-            ...venda,
-            ano: venda.ano + 1,
-            otimo: venda.total + crescimentoMensal[venda.mes - 1].media + 2000,// Essa média de crescimento vem de outro método
-            regular: venda.total + crescimentoMensal[venda.mes - 1].media + 200,
-            ruim: venda.total + crescimentoMensal[venda.mes - 1].media - 2000
-        }
-    })
     recarregaTabelasVendas()
 }
-
+function apagarUltimaVenda(){
+    vendas.pop()
+    recarregaTabelasVendas()
+}
 
 //Login
 if (!sessionStorage.getItem('user')) {
@@ -339,6 +330,19 @@ function getMes(numero) {
 }
 
 function recarregaTabelasVendas(){
+    crescimentoMensal = mediaCrescimentoMensal()
+
+    previsaoVendas = vendas.map((venda, index) => {
+        return {
+            // Cada objeto em previsaoVendas tem o próprio venda, com ano + 1, um valor de crescimento bom, um normal e um ruim.
+            ...venda,
+            ano: venda.ano + 1,
+            otimo: venda.total + crescimentoMensal[venda.mes - 1].media + 2000,// Essa média de crescimento vem de outro método
+            regular: venda.total + crescimentoMensal[venda.mes - 1].media + 200,
+            ruim: venda.total + crescimentoMensal[venda.mes - 1].media - 2000
+        }
+    })
+
     const vendaAno = document.getElementById('linha-ano-vendas')
     const projAno = document.getElementById('proj-ano')
     const colunasTabVendas = document.getElementById('linha1-vendas')
@@ -362,9 +366,10 @@ function recarregaTabelasVendas(){
         if (index >= vendas.length - 12) { // Exibe apenas os ultimos 12 meses, mas poderia mostrar tudo
             vendaAno.innerHTML += `<th>${venda.ano}</th>`
             colunasTabVendas.innerHTML += `<th>${getMes(venda.mes)}</th>`
-            linhaTabVendas.innerHTML += `<td>${venda.total}</td>`
+            linhaTabVendas.innerHTML += `<td>
+                R$ ${venda.total}
+            </td>`
         }
-
     })
     previsaoVendas.map((venda, index) => {
         if (index >= vendas.length - 12) { // Exibe apenas os últimos 12 objetos de previsão de vendas, o que exibe o mês que vem e mais 11 meses

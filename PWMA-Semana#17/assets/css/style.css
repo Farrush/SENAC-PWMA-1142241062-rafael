@@ -139,7 +139,7 @@ main.perfil{
 }
 /*Vendas*/
 #tabvendas{
-    max-width:  40vw;
+    width:  40vw;
     background-color:var(--box-comum);
     border-radius: 5px;
     margin-top: 25px;
@@ -148,7 +148,7 @@ main.perfil{
     overflow-x: auto;
 }
 #tabprojecoes{
-    max-width:  45vw;
+    max-width:  40vw;
     background-color: var(--box-comum);
     border-radius: 5px;
     margin-top: 25px;
@@ -157,11 +157,28 @@ main.perfil{
     overflow-x: auto;
 }
 main.vendas{
+    margin-top: 30px;
     width: 100%;
     justify-content: space-evenly;
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 30%;
+}
+#tabvendas th, #tabprojecoes th{
+    min-width: 100px;
+}
+main.vendas .form{
+    margin-top: 20px;  
+}
+main.vendas .form button{
+    background-color: #e73535;
+    padding: 3px;
+    border: none;
+    margin-top: 10px;
+}
+main.vendas .form button:hover{
+    background-color: #b10f0f;
+    scale: 1.1;
 }
 /*Produtos*/
 main.produtos{
